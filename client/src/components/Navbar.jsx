@@ -34,10 +34,10 @@ const Navbar = () => {
                     </>
                 )}
                 {user?.role === "recruiter" && (
-  <Link to="/recruiter/dashboard" style={{ color: "white", fontWeight: 600 }}>
-    My Postings
-  </Link>
-)}
+                    <Link to="/recruiter/dashboard" style={{ color: "white", fontWeight: 600 }}>
+                        My Postings
+                    </Link>
+                )}
                 <span>Hi, {user?.name}</span>
                 <button className="logout-btn" onClick={handleLogout}>
                     Logout

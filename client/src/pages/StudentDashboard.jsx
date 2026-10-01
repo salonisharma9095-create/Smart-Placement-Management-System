@@ -57,24 +57,24 @@ const StudentDashboard = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-      const handleSave = async () => {
-    setSaving(true);
-    try {
-      const skillsArray = skillsInput
-        .split(",")
-        .map((s) => s.trim())
-        .filter(Boolean);
+    const handleSave = async () => {
+        setSaving(true);
+        try {
+            const skillsArray = skillsInput
+                .split(",")
+                .map((s) => s.trim())
+                .filter(Boolean);
 
-      const response = await updateMyProfile({ ...formData, skills: skillsArray });
-      setProfile(response.data.data);
-      setSkillsInput((response.data.data.skills || []).join(", "));
-      setIsEditing(false);
-    } catch (error) {
-      console.error("Failed to update profile:", error);
-    } finally {
-      setSaving(false);
-    }
-  };
+            const response = await updateMyProfile({ ...formData, skills: skillsArray });
+            setProfile(response.data.data);
+            setSkillsInput((response.data.data.skills || []).join(", "));
+            setIsEditing(false);
+        } catch (error) {
+            console.error("Failed to update profile:", error);
+        } finally {
+            setSaving(false);
+        }
+    };
 
     const handleFileChange = (e) => {
         const file = e.target.files[0];
